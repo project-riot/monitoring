@@ -1,0 +1,8 @@
+#!/bin/sh
+
+logger Running firewall-start script
+
+/jffs/scripts/bandwidth-accounting.sh start
+cru a BandwidthAcct "* * * * * /jffs/scripts/bandwidth-accounting.sh write"
+cru a PowerAcct "* * * * * python3 /jffs/scripts/power-accounting.py"
+
